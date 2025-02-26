@@ -1,5 +1,11 @@
 # Steps to Deploy Service Health Alerts and Route Table Activity Log Alerts
 
+1. Clone the arrow branch from the Azure Monitor Baseline Alerts repository.
+
+    ```bash
+    git clone -b arrow https://github.com/oZakari/azure-monitor-baseline-alerts.git
+    ```
+
 1. **Build `policies-sh.json`**
 
     To compile your Bicep file and generate the corresponding JSON ARM template file, use the `bicep build` command. Follow these steps:
@@ -15,19 +21,28 @@
     Run the following commands:
 
     ```powershell
-    location="Your Azure location of choice"
-    pseudoRootManagementGroup="The pseudo root management group id parenting the identity, management and connectivity management groups"
+    $location="Your Azure location of choice"
+    $pseudoRootManagementGroup="The pseudo root management group id parenting the identity, management and connectivity management groups"
     ```
 
 1. **Deploy the policies**
 
     ```powershell
-    New-AzManagementGroupDeployment -Name "amba-ServiveHealthRouteTablePolicies" -Template-File ".\patterns\alz\policyDefinitions\policies-sh-rt.json" -Location $location -ManagementGroupId $pseudoRootManagementGroup --parameters '{ \"topLevelManagementGroupPrefix\": { \"value\": \"contoso\" } }'
+      $parameters = @{
+        topLevelManagementGroupPrefix = $pseudoRootManagementGroup
+      }
+
+      New-AzManagementGroupDeployment `
+        -Name "amba-ServiveHealthRouteTablePolicies" `
+        -TemplateFile ".\patterns\alz\policyDefinitions\policies-sh-rt.json" `
+        -Location $location `
+        -ManagementGroupId $pseudoRootManagementGroup `
+        -TemplateParameterObject $parameters
     ```
 
 1. **Assign the policies**
 
-    Run the following PowerShell scripts for the respective policy set definitions:
+    Update the parameters within the PowerShell scripts for the Service Health and Route Table Activity Log Alerts, and then deploy the scripts to assign the policy set definitions to the management groups.
 
     Route Table Activity Log Alerts
 

@@ -5,7 +5,6 @@ $pseudoRootManagementGroup = "arrowtest"
 # Define policy assignment parameters
 $parameters = @{
     topLevelManagementGroupPrefix = $pseudoRootManagementGroup
-    LandingZoneManagementGroup = ""
     policyAssignmentParameters = @{
         ALZMonitorResourceGroupName        = @{ value = "rg-amba-monitoring-001" }
         ALZMonitorResourceGroupTags        = @{
