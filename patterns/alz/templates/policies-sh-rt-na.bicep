@@ -49,6 +49,10 @@ var loadPolicyDefinitions = {
     loadTextContent('../../../services/Resources/subscriptions/Deploy-ActivityLog-ServiceHealth-Incident.json')
     loadTextContent('../../../services/Resources/subscriptions/Deploy-ActivityLog-ServiceHealth-Maintenance.json')
     loadTextContent('../../../services/Resources/subscriptions/Deploy-ActivityLog-ServiceHealth-Security.json')
+
+     // Used in Notification-Assets policy definitions only
+     loadTextContent('../../../services/AlertsManagement/actionRules/Deploy-AlertProcessingRule-Deploy.json')
+     loadTextContent('../../../services/AlertsManagement/actionRules/Deploy-AlertProcessingRule-Suppression.json')
   ]
   AzureCloud: []
   AzureChinaCloud: []

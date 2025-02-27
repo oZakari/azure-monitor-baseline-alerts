@@ -20,8 +20,8 @@ $parameters = @{
 
 # Execute the PowerShell deployment command for management group
 New-AzManagementGroupDeployment `
-    -Name "amba-RouteTableAssignment" `
+    -Name "amba-NotificationAssetsAssignment" `
     -Location $location `
     -ManagementGroupId $pseudoRootManagementGroup `
-    -TemplateFile ".\patterns\alz\policyAssignments\DINE-RouteTableAssignment.json" `
+    -TemplateFile ".\patterns\alz\policyAssignments\DINE-NotificationAssetsAssignment.json" `
     -TemplateParameterObject $parameters

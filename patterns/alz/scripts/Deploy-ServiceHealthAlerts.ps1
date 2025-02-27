@@ -1,12 +1,12 @@
 # Define deployment parameters
 $location = "centralus"
-$pseudoRootManagementGroup = "arrowtest"
+$pseudoRootManagementGroup = "temp"
 
 # Define policy assignment parameters using PowerShell hashtable
 $parameters = @{
     topLevelManagementGroupPrefix = $pseudoRootManagementGroup
     policyAssignmentParameters = @{
-        ALZMonitorResourceGroupName = @{ value = "rg-amba-monitoring-001" }
+        ALZMonitorResourceGroupName = @{ value = "rg-amba-temp-monitoring-" }
         ALZMonitorResourceGroupTags = @{
             value = @{
                 Project     = "amba-monitoring"

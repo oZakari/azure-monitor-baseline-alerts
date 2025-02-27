@@ -5,7 +5,7 @@
     To compile your Bicep file and generate the corresponding JSON ARM template file, use the `bicep build` command. Follow these steps:
 
     ```powershell
-    bicep build .\patterns\alz\templates\policies-sh-rt.bicep --outfile .\patterns\alz\policyDefinitions\policies-sh-rt.json
+    bicep build .\patterns\alz\templates\policies-sh-rt-na.bicep --outfile .\patterns\alz\policyDefinitions\policies-sh-rt-na.json
     ```
 
 1. **Configuring variables for deployment**
@@ -15,8 +15,8 @@
     Run the following commands:
 
     ```powershell
-    location="Your Azure location of choice"
-    pseudoRootManagementGroup="The pseudo root management group id parenting the identity, management and connectivity management groups"
+    $location="Your Azure location of choice"
+    $pseudoRootManagementGroup="The pseudo root management group id parenting the identity, management and connectivity management groups"
     ```
 
 1. **Deploy the policies**
